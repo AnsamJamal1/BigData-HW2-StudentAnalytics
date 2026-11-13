@@ -130,7 +130,7 @@ object Part4_SparkSQL {
     println("\n=== 4.3.4 Students above average in ALL their courses ===")
     spark.sql("""
       WITH course_avgs AS (
-        SELECT courseId, AVG(gpa) AS avg_course_gpa
+        SELECT courseId, ROUND(AVG(gpa), 4) AS avg_course_gpa
         FROM enrollments
         GROUP BY courseId
       ),
